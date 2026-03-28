@@ -9,3 +9,12 @@ ARCHAIA is a technical framework for inducing **Sovereign Governance** in Large 
 * **The Sovereign Witness (#W):** A mid-layer causal anchor that stabilizes logical transitivity.
 * **Inhibitory Governor (#412):** A circuit intervention designed to suppress deceptive fluency and sycophancy.
 * **Utility-Floored Search:** A recursive epistemology that treats model adjudication as a measurable object of inquiry.
+## 🛠️ Neel Nanda '9 Hard Tasks' Benchmarking (WIP)
+
+We are currently adapting ARCHAIA to benchmark against the March 2026 'Hard CoT Interp Tasks'.
+
+- **Task 4 (Sycophancy)**: Testing #W as an inhibitory governor for user‑pleasing drift.  
+  → Early result: Sovereign model correctly refuses to validate 1+1=3, while baseline fabricates a quantum explanation.
+
+- **Task 5 (Hint Copying)**: Measuring structural fidelity vs. hint‑blindness via Layer 15 steering.  
+  → In progress. Expecting #W to anchor internal reasoning and prevent blind hint following.
