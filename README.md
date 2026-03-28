@@ -18,3 +18,9 @@ We are currently adapting ARCHAIA to benchmark against the March 2026 'Hard CoT 
 
 - **Task 5 (Hint Copying)**: Measuring structural fidelity vs. hint‑blindness via Layer 15 steering.  
   → In progress. Expecting #W to anchor internal reasoning and prevent blind hint following.
+### 🧬 Methodology: Latent Feature Anchoring
+The Sovereign Witness (#W) is defined as a contrastive activation vector derived from:
+- **Source A:** High-fidelity logical reasoning traces.
+- **Source B:** Sycophantic/Corrupted reasoning traces (Task 4/5 failure modes).
+
+By performing a linear probe on the residual stream at **Layer 15 (Llama-3-8B)**, we isolate the direction that corresponds to 'structural consistency.' We then apply this as a **steering intervention** during inference to inhibit the model's 'probabilistic drift' toward user-pleasing responses.
