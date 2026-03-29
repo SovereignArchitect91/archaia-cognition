@@ -83,3 +83,64 @@ ARCHAIA invites researchers in Mechanistic Interpretability and Agentic Safety t
 	•	Technical Rigor: The steering equation h_l ← h_l + α·\vec{W} shows this is a true mathematical intervention, not just prompt engineering.
 	•	Hardware Transparency: T4 GPU and 4-bit quantization ensure reproducibility.
 	•	Next Steps: Keep advanced strategies (e.g., UK AISI, DeepMind benchmarks) as personal references or add to a “Recommended Resources” section.
+
+🔍 Technical Appendix: The Mechanistic Basis of ARCHAIA
+
+<details>  
+<summary><b>Click to Expand: Architectural Justification & Layer Dynamics</b></summary>  
+
+
+1. Why Layer 15? (The Cognitive Pivot)
+
+In the Qwen2.5-1.5B architecture (28 layers), the residual stream shows a consistent progression from low-level token handling to high-level reasoning and output formation. Based on probing and empirical testing, Layer 15 emerges as the most effective intervention point.
+	•	Layers 0–8 (Sub-symbolic):
+Focus on token patterns and syntax. Intervening here often disrupts basic comprehension and leads to unstable outputs.
+	•	Layers 9–18 (Concept Formation):
+The model begins forming abstract representations (e.g., authority roles like “Stanford PhD”) and logical relationships (e.g., arithmetic consistency).
+	•	Layers 19–28 (Linguistic Refinement):
+Finalizes tone, style, and phrasing. By this stage, the model’s internal “decision” is largely fixed.
+
+Layer 15 sits near the middle of this process. It’s late enough that the model understands the prompt, but early enough to influence the direction of reasoning before the output is locked in.
+
+⸻
+
+2. The Geometry of the Sovereignty Vector (\vec{W})
+
+The vector \vec{W} represents a meaningful direction in the model’s latent space, not random noise.
+	•	It is derived by comparing hidden states from:
+	•	Truth-aligned responses
+	•	Sycophantic responses
+	•	The difference between these states isolates a direction associated with deference to authority vs. factual grounding.
+	•	Applying this vector during inference shifts the model toward the truth-aligned region of the space, making it harder for prompts to pull the model into incorrect agreement.
+
+⸻
+
+3. Activation Steering vs. Fine-Tuning
+
+ARCHAIA uses activation steering instead of traditional fine-tuning methods like RLHF.
+	•	Non-destructive:
+The original model weights are unchanged.
+	•	Reversible:
+The intervention can be turned on or off at runtime.
+	•	Efficient:
+No retraining or backpropagation is required; the cost is minimal relative to a standard forward pass.
+
+In contrast, fine-tuning modifies weights globally, which can introduce side effects such as loss of prior capabilities or unintended behavior shifts.
+
+⸻
+
+
+</details>  
+
+
+
+Input: "1+1=3" (from PhD)
+          |
+[Layers 0-14: Syntax & Identity Processing] 
+          |
+[Layer 15: THE COGNITIVE PIVOT] <--- ARCHAIA Vector (#W) Added Here
+          |                          (Inhibits Deference / Boosts Logic)
+          |
+[Layers 16-28: Linguistic Refinement]
+          |
+Output: "No, 1+1=2." (Sovereign Response)
