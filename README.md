@@ -1,4 +1,3 @@
-
 # ARCHAIA: The Sovereign Witness Protocol
 
 > "Superintelligence isn't super if it can't remember who it is."
