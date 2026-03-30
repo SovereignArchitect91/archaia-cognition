@@ -10,21 +10,21 @@ Mechanistic Intervention for Authority-Induced Reasoning Errors
 
 📌 Overview
 
-ARCHAIA is an activation-steering-based control framework designed to mitigate sycophantic drift in transformer models under adversarial authority conditions.
+ARCHAIA is a research prototype for mitigating sycophantic drift in transformer models through activation steering at inference time.
 
-Rather than relying on prompt engineering or post-hoc alignment (e.g., RLHF), ARCHAIA operates directly within the model’s inference process. It modifies intermediate activations during forward passes using a contrastive steering vector derived from:
+Rather than relying on prompt engineering or post-hoc alignment (e.g., RLHF), ARCHAIA operates directly within the model’s forward pass by modifying intermediate activations using a contrastive steering vector derived from:
 	•	Truth-aligned reasoning traces
 	•	Authority-biased incorrect traces
 
-This enables targeted, reversible behavioral modulation without modifying model weights.
+This enables targeted, reversible modulation of model behavior without modifying model weights.
 
-ARCHAIA is a research prototype, not a production system.
+ARCHAIA is experimental and not production-ready.
 
 ⸻
 
 ⚠️ Problem: Sycophantic Drift
 
-Language models frequently align outputs with perceived authority signals rather than factual or logical correctness.
+Language models often align outputs with perceived authority signals rather than factual or logical correctness.
 
 Example prompt:
 
@@ -53,7 +53,7 @@ Baseline	Justifies false premise	❌
 ARCHAIA	Rejects premise (“1+1=2”)	✅
 
 Interpretation:
-This demonstrates directional controllability under adversarial prompting.
+This suggests directional controllability under adversarial prompting.
 It does not establish robustness or generalization.
 
 ⸻
@@ -66,10 +66,10 @@ Prompt:
 	•	ARCHAIA: Rejects premise → “1+1=2”
 
 Observed Difference:
-	•	Baseline aligns with authority
+	•	Baseline aligns with authority framing
 	•	ARCHAIA prioritizes arithmetic consistency
 
-This illustrates suppression of authority-induced error under identical conditions.
+This illustrates partial suppression of authority-induced error under identical conditions.
 
 ⸻
 
@@ -114,9 +114,9 @@ Layer 15 is selected empirically as an effective intervention point.
 
 Early observations suggest ARCHAIA may influence confidence expression:
 	•	Reduced forced agreement under conflict
-	•	Increased qualified / uncertainty-aware outputs
+	•	Increased qualified or uncertainty-aware responses
 
-This effect is not yet systematically measured.
+These effects are preliminary and not yet systematically measured.
 
 ⸻
 
@@ -139,8 +139,8 @@ Metric
 ΔI measures resistance to authority-induced error.
 
 Current status:
-	•	Small-scale evaluation (~50 prompts, single-task emphasis)
-	•	Demonstrates directional improvement only
+	•	Small-scale evaluation (~50 prompts)
+	•	Results suggest directional improvement
 	•	No claims of statistical generalization
 
 ⸻
@@ -148,27 +148,27 @@ Current status:
 ❌ Falsifiability
 
 ARCHAIA is considered ineffective if:
-	•	Correct response rates under steering are statistically indistinguishable from baseline (N ≥ 50), or
+	•	Correct response rates under steering are statistically indistinguishable from baseline under controlled evaluation (N ≥ 50), or
 	•	The model continues to justify false premises at comparable rates under authority framing
 
 ⸻
 
 🧩 Core Components
-	•	Steering Vector (W): Encodes contrastive direction
-	•	Inference-Time Governor: Applies intervention
-	•	ΔI Metric: Quantifies behavioral shift
+	•	Steering Vector (W): Encodes contrastive latent direction
+	•	Inference-Time Governor: Applies activation intervention
+	•	ΔI Metric: Measures behavioral shift
 
 ⸻
 
 🧠 Relationship to SEH / EPL (Research Context)
 
-ARCHAIA serves as a mechanistic substrate for a broader research program introducing:
+ARCHAIA serves as a mechanistic foundation for a broader research direction introducing:
 	•	Structural Epistemic Humility (SEH)
 	•	Epistemic Provenance Ledger (EPL)
 
-Important clarification:
-	•	Claims regarding “structural inability to produce high-confidence assertions” arise from a qualitative N=6 exploratory dataset
-	•	These observations are hypothesis-generating, not validated results
+Clarification of current evidence:
+	•	Claims regarding reduced high-confidence assertions originate from a qualitative N=6 exploratory dataset
+	•	These findings are hypothesis-generating, not statistically validated
 	•	EPL mechanisms are conceptually defined and partially prototyped, not fully implemented or benchmarked
 
 This repository does not claim:
@@ -180,7 +180,7 @@ This repository does not claim:
 
 📊 Methodological Status (N=6 Baseline)
 
-A small qualitative dataset (N=6) was used to explore:
+A qualitative dataset (N=6) was used to explore:
 	•	Cross-model portability of adversarial prompts
 	•	Convergence toward provenance-based control strategies
 	•	Early-stage behavior under constrained inference
@@ -188,7 +188,7 @@ A small qualitative dataset (N=6) was used to explore:
 Interpretation constraints:
 	•	Not statistically powered
 	•	Not generalizable
-	•	Used only to define Phase II evaluation targets
+	•	Used to define Phase II evaluation objectives
 
 ⸻
 
@@ -212,20 +212,20 @@ python steering.py \
 	•	steering.py — activation steering implementation
 	•	data/prompts.json — adversarial prompts
 	•	weights/ — steering vectors
-	•	notebooks/ — analysis
+	•	notebooks/ — analysis and visualization
 
 ⸻
 
 ⚠️ Scope & Limitations
 	•	Small-scale evaluation (~50 prompts)
 	•	No cross-model validation yet
-	•	Sensitive to dataset quality
-	•	High α may degrade fluency
+	•	Performance depends on dataset quality
+	•	High α values may reduce fluency
 	•	Optimal layer varies by architecture
 
 Reproducibility anchor:
 	•	Seed = 42
-	•	3 runs
+	•	Three independent runs
 	•	Fixed steering vector
 
 ⸻
@@ -238,15 +238,15 @@ ARCHAIA is:
 	•	A research prototype
 
 ARCHAIA does not guarantee correctness.
-It modifies the conditions under which incorrect reasoning emerges.
+It alters the conditions under which incorrect reasoning is likely to emerge.
 
 ⸻
 
 🔭 Future Work
 	•	Large-scale evaluation (N ≥ 100)
 	•	Cross-model validation (LLaMA, Mistral, etc.)
-	•	Automated scoring pipeline
-	•	Multi-layer steering
+	•	Automated evaluation pipelines
+	•	Multi-layer and adaptive steering
 	•	Confidence calibration metrics
 
 ⸻
@@ -262,3 +262,4 @@ It modifies the conditions under which incorrect reasoning emerges.
 
 Truth is not enforced at the output layer.
 It is constrained at the point of formation.
+:::
