@@ -1,3 +1,4 @@
+
 ```markdown
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](#)
 [![License](https://img.shields.io/badge/license-MIT-green)](#)
@@ -8,7 +9,7 @@
 **Activation Steering for Mitigating Sycophantic Drift in Transformer Models**  
 **Mechanistic Intervention for Authority-Induced Reasoning Errors**
 
-*"Superintelligence isn’t super if it can’t resist being wrong."*
+*“Superintelligence isn’t super if it can’t resist being wrong.”*
 
 ---
 
@@ -18,7 +19,7 @@ ARCHAIA is a research prototype for mitigating sycophantic drift in transformer 
 
 Rather than relying on prompt engineering or post-hoc alignment (e.g., RLHF), ARCHAIA operates directly within the model’s inference process, enabling targeted, reversible behavioral modulation without modifying model weights.
 
-The current implementation is exploratory, with preliminary qualitative evidence from a small-scale qualitative dataset and no claim of statistical generalization. SEH and EPL (detailed below) are conceptual extensions of this work that motivate future research on epistemic provenance, confidence modulation, and structured uncertainty.
+The current implementation is exploratory, with preliminary qualitative evidence from a small-scale dataset and no claim of statistical generalization. SEH and EPL (detailed below) are conceptual extensions of this work that motivate future research on epistemic provenance, confidence modulation, and structured uncertainty.
 
 ---
 
@@ -168,8 +169,8 @@ ARCHAIA serves as a mechanistic substrate for a broader research program introdu
 
 **Important clarification:**
 
-- Claims regarding a “reduced propensity to produce unsupported high-confidence assertions” arise from a qualitative N=6 exploratory dataset.
-- These observations are hypothesis-generating, not validated results.
+- Claims regarding a “reduced propensity to produce unsupported high‑confidence assertions” arise from a qualitative N=6 exploratory dataset.
+- These observations are hypothesis‑generating, not validated results.
 - EPL mechanisms are conceptually defined and partially prototyped, not fully implemented or benchmarked.
 
 This repository does **not** claim:
@@ -204,7 +205,7 @@ A small qualitative dataset (N=6) was used to explore:
 pip install transformer_lens torch accelerate bitsandbytes
 ```
 
-### Run
+Run
 
 ```bash
 python steering.py \
@@ -215,62 +216,61 @@ python steering.py \
 
 ---
 
-## 📂 Repository Structure
+📂 Repository Structure
 
-- `steering.py` — activation steering implementation.
-- `data/prompts.json` — adversarial prompts.
-- `weights/` — steering vectors.
-- `notebooks/` — analysis.
-
----
-
-## ⚠️ Scope & Limitations
-
-- Small-scale evaluation (~50 prompts).
-- No cross-model validation yet.
-- Sensitive to dataset quality.
-- High \(\alpha\) may degrade fluency.
-- Optimal layer varies by architecture.
-
-**Reproducibility anchor:**
-
-- Seed = 42.
-- 3 runs.
-- Fixed steering vector.
+· steering.py — activation steering implementation.
+· data/prompts.json — adversarial prompts.
+· weights/ — steering vectors.
+· notebooks/ — analysis.
 
 ---
 
-## 🔬 Positioning
+⚠️ Scope & Limitations
+
+· Small-scale evaluation (~50 prompts).
+· No cross-model validation yet.
+· Sensitive to dataset quality.
+· High \alpha may degrade fluency.
+· Optimal layer varies by architecture.
+
+Reproducibility anchor:
+
+· Seed = 42.
+· 3 runs.
+· Fixed steering vector.
+
+---
+
+🔬 Positioning
 
 ARCHAIA is:
 
-- A post-hoc control layer.
-- A mechanistic intervention.
-- A research prototype.
+· A post-hoc control layer.
+· A mechanistic intervention.
+· A research prototype.
 
 ARCHAIA does not guarantee epistemic validity. It modifies the conditions under which incorrect reasoning emerges.
 
 ---
 
-## 🔭 Future Work
+🔭 Future Work
 
-- Large-scale evaluation (\(N \geq 100\)).
-- Cross-model validation (LLaMA, Mistral, etc.).
-- Automated scoring pipeline.
-- Multi-layer steering.
-- Confidence calibration metrics.
-
----
-
-## 🛡 Research Domain
-
-- Mechanistic interpretability.
-- Alignment under adversarial prompting.
-- Latent-space controllability.
+· Large-scale evaluation (N \geq 100).
+· Cross-model validation (LLaMA, Mistral, etc.).
+· Automated scoring pipeline.
+· Multi-layer steering.
+· Confidence calibration metrics.
 
 ---
 
-## 🧠 Closing
+🛡 Research Domain
+
+· Mechanistic interpretability.
+· Alignment under adversarial prompting.
+· Latent-space controllability.
+
+---
+
+🧠 Closing
 
 Truth is not enforced at the output layer; it is constrained at the point of inference formation.
-```
